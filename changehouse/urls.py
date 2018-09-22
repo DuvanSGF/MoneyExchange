@@ -1,7 +1,9 @@
-from django.urls import path
+from django.urls import path, include
 
 from . import views
+#from changehouse.views import *
 
+app_name = 'changehouse'
 urlpatterns = [
-    path('', views.index, name='index'),
+    path('', views.inicio, name='inicio'),
 ]
