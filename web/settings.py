@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'changehouse',
 ]
 
 MIDDLEWARE = [
@@ -103,7 +104,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/2.0/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'es-co'
 
 TIME_ZONE = 'UTC'
 
@@ -118,3 +119,22 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 STATIC_URL = '/static/'
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'web/media')
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "changehouse", "static"),
+    #'/var/www/static/',
+]
+LOGIN_REDIRECT_URL = '/site/'
+
+LOGIN_URL = '/site/login/'
+
+LOGIN_EXEMPT_URLS = (
+    r'^site/logout/$',
+    r'^site/register/$',
+    r'^site/reset-password/$',
+    r'^site/reset-password/done/$',
+    r'^site/reset-password/confirm/(?P<uidb64>[0-9A-Za-z]+)-(?P<token>.+)/$',
+    r'^site/reset-password/complete/$',
+)

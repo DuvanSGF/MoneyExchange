@@ -15,8 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path
+# Importamos las dos siguientes lineas para que reconozca la linea 25: Es para la Imagen de Perfil. Ok
+from django.conf.urls.static import static
+from django.conf import settings
 
 urlpatterns = [
-    path('hello/', include('changehouse.urls')),
+    path('site/', include('changehouse.urls', namespace='site')),
     path('admin/', admin.site.urls),
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) # Imagen de perfil
