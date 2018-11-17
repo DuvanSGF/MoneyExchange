@@ -41,7 +41,7 @@ class Cliente(models.Model):
     Cli_Direccion = models.CharField(max_length=50)
     Cli_Telefono = models.CharField(max_length=50)
     Cli_Persona = models.CharField(max_length=1, choices=TIPOPER, default="0", help_text='Tipo de persona')
-    Cli_Estado = models.CharField(max_length=1, choices=ESTADmoOS, default="0")
+    Cli_Estado = models.CharField(max_length=1, choices=ESTADOS, default="0")
     Cli_User_ID = models.ForeignKey(UserProfile, on_delete=models.CASCADE)
 
 class VentaCompra(models.Model):
