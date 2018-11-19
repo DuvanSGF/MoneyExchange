@@ -1,11 +1,13 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.utils import timezone
+from django.urls import reverse
 
 # Create your models here.
+
 TIPOPER = (
-       ('0', 'Natural'),
-       ('1', 'Juridica'),
+       ('Natural', 'N'),
+       ('Juridica', 'J'),
 )
 
 ESTADOS = (('0', 'Activo'), ('1', 'Desactivo'))
@@ -34,15 +36,19 @@ class UserProfile(models.Model):
 
 class Cliente(models.Model):
     id_cliente = models.AutoField(primary_key=True)
-    Cli_Nombre = models.CharField(max_length=25)
+    Cli_Nombre = models.CharField("Nombres", max_length=25)
     Cli_Apellido = models.CharField(max_length=25)
     Cli_TipoID = models.CharField(max_length=1, choices=TIPOID, default="0")
     Cli_Identificacion = models.IntegerField()
     Cli_Direccion = models.CharField(max_length=50)
     Cli_Telefono = models.CharField(max_length=50)
-    Cli_Persona = models.CharField(max_length=1, choices=TIPOPER, default="0", help_text='Tipo de persona')
+    Cli_Persona = models.CharField(max_length=10, choices=TIPOPER, default="Natural")
     Cli_Estado = models.CharField(max_length=1, choices=ESTADOS, default="0")
     Cli_User_ID = models.ForeignKey(UserProfile, on_delete=models.CASCADE)
+
+
+    def __str__(self):
+        return self.Cli_Persona
 
 class VentaCompra(models.Model):
     id_venta = models.AutoField(primary_key=True)
