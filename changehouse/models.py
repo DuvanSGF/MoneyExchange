@@ -13,9 +13,8 @@ TIPOPER = (
 ESTADOS = (('0', 'Activo'), ('1', 'Desactivo'))
 
 TIPOID = (
-       ('0', 'TI'),
-       ('1', 'CC'),
-       ('2', 'PA')
+       ('TI', 'TI'),
+       ('CC', 'CC'),
 )
 
 CHANGE = (('0', 'Dolares a Pesos'), ('Pesos a Dolares'))
@@ -38,7 +37,7 @@ class Cliente(models.Model):
     id_cliente = models.AutoField(primary_key=True)
     Cli_Nombre = models.CharField("Nombres", max_length=25)
     Cli_Apellido = models.CharField(max_length=25)
-    Cli_TipoID = models.CharField(max_length=1, choices=TIPOID, default="0")
+    Cli_TipoID = models.CharField(max_length=2, choices=TIPOID, default="TI")
     Cli_Identificacion = models.IntegerField()
     Cli_Direccion = models.CharField(max_length=50)
     Cli_Telefono = models.CharField(max_length=50)
