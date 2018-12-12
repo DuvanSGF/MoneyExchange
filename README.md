@@ -20,7 +20,6 @@ This package officially supports all currently supported versions of Python/Djan
 
 |      Python   | 2.7 | 3.3 | 3.4 | 3.5 | 3.6 |
 | :------------ | --- | --- | --- | --- | --- |
-| Django 1.9    |  :white_check_mark:  | :x: |  :white_check_mark:  |  :white_check_mark:  | :large_blue_circle: |
 | Django 1.10   |  :white_check_mark:  | :x: |  :white_check_mark:  |  :white_check_mark:  | :large_blue_circle: |
 | Django 1.11   |  :white_check_mark:  | :x: | :white_check_mark:   | :white_check_mark:   | :x:                 |
 | Django 2.0    |  :large_blue_circle:                 | :white_check_mark: | :white_check_mark:   | :white_check_mark:   | :white_check_mark:                 |
@@ -51,8 +50,8 @@ Authored by [Duvan Mejia](https://stackoverflow.com/users/9872532/duvan-sgf?tab=
 ----
 
 ## Requirements
-* Python 2.7
-* Django 1.11
+* Python 3.6.6
+* Django 2.0
 
 
 
@@ -61,13 +60,13 @@ Authored by [Duvan Mejia](https://stackoverflow.com/users/9872532/duvan-sgf?tab=
 Clone this repository into your project:
 
 ```bash
-git clone https://github.com/DuvanSGF/Django-with-Admin-LTE.git
+git clone https://github.com/DuvanSGF/changehouse.git
 ```
 
 Download the zip file and unpack it:
 
 ```bash
-wget https://github.com/DuvanSGF/Django-with-Admin-LTE/master.zip
+wget https://github.com/DuvanSGF/changehouse/master.zip
 unzip master.zip
 ```
 
@@ -79,14 +78,14 @@ pip install -r requirements.txt
 
 ## Configuration
 
-You'll need to see the documentation If you not understand something. See that [documentation](https://docs.djangoproject.com/en/1.11/) for guidance.
+You'll need to see the documentation If you not understand something. See that [documentation](https://docs.djangoproject.com/en/2.0/) for guidance.
 
 You'll need to add `estudiantes` to `INSTALLED_APPS` in your projects `settings.py` file:
 
 ```python
 INSTALLED_APPS = (
     # ...
-    'estudiantes',
+    'changehouse',
     # ...
 )
 ```
@@ -101,12 +100,12 @@ These settings should be reviewed and set or modified BEFORE any migrations have
 After you have configured all migration settings, run
 
 ```bash
-python manage.py migrate estudiantes
+python manage.py migrate changehouse
 ```
 then
 
 ```bash
-python manage.py makemigrations estudiantes
+python manage.py makemigrations changehouse
 ```
 
 
@@ -127,16 +126,14 @@ I'm finding some bugs and I will fix.
 
 ## Future 
 
-* Upgrade Django-with-Admin-LTE to Django 2.0 and Python 3.6.
+* I'm working about that! 
 
-* Remove Smart-selects Module.
 
-I'm working about that!
 
 ## Running Tests
 
 1. Install postgres, MySQL (In my case I have installed XAMPP).
-2. Create `usco` database.
+2. Create `changehouse` database.
 3. Run the following command :
 
         $ python manage.py createsuperuser
