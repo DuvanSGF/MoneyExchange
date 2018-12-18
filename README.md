@@ -2,7 +2,8 @@
 ----
 ChangeHouse was developed by Duvan Mejia, with the documentation available on docs.djangoproject.com.
 ---
-
+[![Python Version](https://img.shields.io/badge/python-3.6-brightgreen.svg)](https://python.org)
+[![Django Version](https://img.shields.io/badge/django-2.0-brightgreen.svg)](https://djangoproject.com)
 [![Build Status](https://travis-ci.org/FineUploader/fine-uploader.svg?branch=master)](https://github.com/DuvanSGF/changehouse)
 [![npm](https://img.shields.io/npm/v/fine-uploader.svg)](https://docs.npmjs.com/getting-started/what-is-npm)
 [![CDNJS](https://img.shields.io/cdnjs/v/file-uploader.svg)](https://cdnjs.com/libraries/file-uploader)
