@@ -32,7 +32,7 @@ This package officially supports all currently supported versions of Python/Djan
 | :x: | Known incompatibilities                                             |
 
 Authored by [Duvan Mejia](https://stackoverflow.com/users/9872532/duvan-sgf?tab=profile).
-![Django Boards Screenshot](https://pbs.twimg.com/media/DuF_oJPWkAAYa0h.jpg:large)
+![Django Boards Screenshot](https://pbs.twimg.com/media/DuqxoENWkAAj_G8.jpg:large)
 ----
 ## Documentation
 
@@ -65,29 +65,41 @@ git clone https://github.com/DuvanSGF/changehouse.git
 Download the zip file and unpack it:
 
 ```bash
-wget https://github.com/DuvanSGF/changehouse/master.zip
+widget https://github.com/DuvanSGF/changehouse/master.zip
 unzip master.zip
 ```
-
-pip install -r requirements.txt
-./manage.py migrate
-./manage.py runserver
-
 
 
 ## Configuration
 
+Installing Virtualenv
+
+For the next step, we are going to use pip, a tool to manage and install Python packages, to install virtualenv.
+
+In the Command Prompt, execute the command below:
+
+```bash
+pip install virtualenv
+```
+Inside the changeHouse folder:
+
+```bash
+virtualenv venv
+```
+
+Our virtual environment is created. Now before we start using it, we need to activate:
+
+```bash
+venv\Scripts\activate
+```
+
+It’s very straightforward. Now that we have the venv activated, run the following command to install requirements:
+
+```bash
+pip install -r requirements.txt
+```
 You'll need to see the documentation If you not understand something. See that [documentation](https://docs.djangoproject.com/en/2.0/) for guidance.
 
-You'll need to add `estudiantes` to `INSTALLED_APPS` in your projects `settings.py` file:
-
-```python
-INSTALLED_APPS = (
-    # ...
-    'changehouse',
-    # ...
-)
-```
 
 ### Migration Configuration
 
@@ -123,9 +135,9 @@ I'm finding some bugs and I will fix.
 
 
 
-## Future 
+## Future
 
-* I'm working about that! 
+* I'm working about that!
 
 
 
