@@ -76,14 +76,16 @@
               <i class="fa fa-times"></i></button>
           </div>
         </div>
+        <div class="box-body">
         {% block content %}
         <form method="post">
         	{% csrf_token %}
         	<h3>¿Desea eliminar el registro de {{ object.Cli_Nombre }}?</h3>
         	<button class="btn btn-danger" type="submit">Sí, eliminar</button>
-        	<a class= "btn btn-default" href="{% url 'site:estudiante_listar' %}">Cancelar</a>
+        	<a class= "btn btn-default" href="{% url 'site:cliente_listar' %}">Cancelar</a>
         </form>
         {% endblock %}
+        </div>
         <!-- /.box-body -->
         <div class="box-footer">
 

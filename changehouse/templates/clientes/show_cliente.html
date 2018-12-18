@@ -76,19 +76,22 @@
               <i class="fa fa-times"></i></button>
           </div>
         </div>
+        <div class="box-body">
         {% block content %}
 
         <p><strong>Nombres: </strong>{{ object.Cli_Nombre }} </p>
         <p><strong>Apellidos: </strong>{{ object.Cli_Apellido }} </p>
         <p><strong>Identificacion: </strong>{{ object.Cli_Identificacion }} </p>
-
-
+        <p><strong>Direccion: </strong>{{ object.Cli_Direccion }} </p>
+        <p><strong>Telefono: </strong>{{ object.Cli_Telefono }} </p>
+        <p><strong>Tipo de Persona: </strong>{{ object.Cli_Persona }} </p>
 
         <a class= "btn btn-success" href="{% url 'site:cliente_listar' %}">Ok</a>
-        <a class= "btn btn-primary" href="{% url 'site:cliente_editar' object.id_cliente %}">Editar</a>
-        <a class="btn btn-danger" href="{% url 'site:cliente_eliminar' object.id_cliente %}">Eliminar</a>
+        <a class= "btn btn-primary" href="{% url 'site:cliente_editar' cliente.id_cliente %}">Editar</a>
+        <a class="btn btn-danger" href="{% url 'site:cliente_eliminar' cliente.id_cliente %}">Eliminar</a>
 
         {% endblock %}
+      </div>
         <!-- /.box-body -->
         <div class="box-footer">
 

@@ -38,7 +38,6 @@
 
   <!-- Google Font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
-  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
@@ -79,64 +78,17 @@
         </div>
         <div class="box-body">
           {% block content %}
-
-
-          <table class="table table-bordered" id="cliente">
-          	<thead>
-          		<tr>
-          			<td>#</td>
-          			<td>Nombres</td>
-          			<td>Apellidos</td>
-          			<td>Tipo ID</td>
-                <td>Identificacion</td>
-          			<td>Direccion</td>
-          			<td>Telefono</td>
-          			<td>Tipo persona</td>
-                <td>Acciones</td>
-          		</tr>
-
-          	</thead>
-          	<tbody>
-          		{% if object_list %}
-          		{% for cliente in object_list %}
-          		<tr>
-          			<td>{{ cliente.id_cliente }}</td>
-          			<td>{{ cliente.Cli_Nombre }}</td>
-          			<td>{{ cliente.Cli_Apellido }}</td>
-                <td>{{ cliente.Cli_TipoID }}</td>
-                <td>{{ cliente.Cli_Identificacion }}</td>
-          			<td>{{ cliente.Cli_Direccion }}</td>
-          			<td>{{ cliente.Cli_Telefono }}</td>
-                <td>{{ cliente.Cli_Persona }}</td>
-          			<td>
-          				<a class="btn btn-primary" href="{% url 'site:cliente_mostrar' cliente.id_cliente %}">Ver</a>
-          				<a class="btn btn-primary" href="{% url 'site:cliente_editar' cliente.id_cliente %}">Editar</a>
-          				<a class="btn btn-danger" href="{% url 'site:cliente_eliminar' cliente.id_cliente %}">Eliminar</a>
-          			</td>
-          		</tr>
-          		{% endfor %}
-          		{% else %}
-          		<h1>No hay registros de clientes</h1>
-          		{% endif %}
-          	</tbody>
-          </table>
-          <ul class="pager">
-          	<li>
-          		{% if page_obj.has_previous %}
-                 	 <a href="?page={{ page_obj.previous_page_number }}">Previous</a>
-          		{% endif %}
-                  </li>
-          	<li>
-          		{% if page_obj.has_next %}
-               	 <a href="?page={{ page_obj.next_page_number }}">Next</a>
-              	{% endif %}
-              </li>
-          </ul>
-          {% endblock%}
+          <form method="post">
+          	{% csrf_token %}
+          	{{ form.as_p }}
+          	<button class="btn btn-success" type="submit">Guardar</button>
+          	<a class= "btn btn-primary" href="{% url 'site:cliente_listar' %}">Cancelar</a>
+          </form>
+          {% endblock %}
         </div>
         <!-- /.box-body -->
         <div class="box-footer">
-
+          <!-- footer-->
         </div>
         <!-- /.box-footer-->
       </div>
@@ -193,12 +145,5 @@
 <script src="{% static 'dist/js/pages/dashboard.js' %}"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="{% static 'dist/js/demo.js' %}"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.0/jquery.js"></script>
-<script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js" charset="utf-8"></script>
-<script>
-$(document).ready( function () {
-  $('#estudiantes').DataTable();
-} );
-</script>
 </body>
 </html>
