@@ -31,7 +31,7 @@ This package officially supports all currently supported versions of Python/Djan
 | :x: | Known incompatibilities                                             |
 
 Authored by [Duvan Mejia](https://stackoverflow.com/users/9872532/duvan-sgf?tab=profile).
-
+![Django Boards Screenshot](https://pbs.twimg.com/media/DuF_oJPWkAAYa0h.jpg:large)
 ----
 ## Documentation
 
