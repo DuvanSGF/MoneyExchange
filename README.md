@@ -103,20 +103,22 @@ You'll need to see the documentation If you not understand something. See that [
 
 ### Migration Configuration
 
-These settings should be reviewed and set or modified BEFORE any migrations have been run.
+1. Install postgres, MySQL (In my case I have installed XAMPP).
+2. Create `changehouse` database.
 
+These settings should be reviewed and set or modified BEFORE any migrations have been run.
 
 ### Run Migrations
 
 After you have configured all migration settings, run
 
 ```bash
-python manage.py migrate changehouse
+python manage.py migrate
 ```
 then
 
 ```bash
-python manage.py makemigrations changehouse
+python manage.py makemigrations
 ```
 
 
@@ -143,25 +145,30 @@ I'm finding some bugs and I will fix.
 
 ## Running Tests
 
-1. Install postgres, MySQL (In my case I have installed XAMPP).
-2. Create `changehouse` database.
-3. Run the following command :
+Run the following command :
+```bash
+  $ python manage.py createsuperuser
+```
+Username: Your name
+Email address: admin@example.com
 
-        $ python manage.py createsuperuser
-        Username: admin
+Run tests:
 
-        You will then be prompted for your desired email address:
-        Email address: admin@example.com
+Finally, run the development server:
 
-4. Run tests:
-
+        ```bash
         $ python manage.py runserver
-
-        Now, open a Web browser and go to “/admin/” on your local domain – e.g., http://127.0.0.1:8000/site/. You should see the admin’s login screen:
+        ```
+Now, open a Web browser and go to “/admin/” on your local domain – e.g., **127.0.0.1:8000** You should see the admin’s login screen:
 
  <img src="https://raw.githubusercontent.com/RamEduard/admin-lte-express/master/public/readme/login.png" width="300">
 
 
 ## license
 
-MIT, as the original project. See LICENSE.txt.
+MIT, as the original project. See [MIT License](https://github.com/DuvanSGF/changehouse/blob/master/LICENSE.TXT).
+
+[![Creative Commons License](https://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png)](http://creativecommons.org/licenses/by-nc-sa/3.0/)
+
+The tutorials, documentations, comics are licensed under the
+[Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License](https://creativecommons.org/licenses/by-nc-sa/3.0/).
