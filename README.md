@@ -42,7 +42,6 @@ Authored by [Duvan Mejia](https://stackoverflow.com/users/9872532/duvan-sgf?tab=
   * [Migration Configuration](#migrations-configuration)
   * [Run Migrations](#run-migrations)
 * [Notes](#notes)
-* [Future](#future)
 * [Running Tests](#running-tests)
 * [License](#license)
 
@@ -136,30 +135,26 @@ If you is here! Congrats only two steps more and it's ready!
 I'm finding some bugs and I will fix.
 
 
-
-## Future
-
-* I'm working about that!
-
-
-
 ## Running Tests
 
 Run the following command :
+
 ```bash
   $ python manage.py createsuperuser
 ```
 Username: Your name
+
 Email address: admin@example.com
 
 Run tests:
 
 Finally, run the development server:
 
-        ```bash
-        $ python manage.py runserver
-        ```
-Now, open a Web browser and go to “/admin/” on your local domain – e.g., **127.0.0.1:8000** You should see the admin’s login screen:
+```bash
+  $ python manage.py runserver
+```
+
+Now, open a Web browser and go to “/site/” on your local domain – e.g., **127.0.0.1:8000** You should see the admin’s login screen:
 
  <img src="https://raw.githubusercontent.com/RamEduard/admin-lte-express/master/public/readme/login.png" width="300">
 
@@ -169,6 +164,3 @@ Now, open a Web browser and go to “/admin/” on your local domain – e.g., *
 MIT, as the original project. See [MIT License](https://github.com/DuvanSGF/changehouse/blob/master/LICENSE.TXT).
 
 [![Creative Commons License](https://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png)](http://creativecommons.org/licenses/by-nc-sa/3.0/)
-
-The tutorials, documentations, comics are licensed under the
-[Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License](https://creativecommons.org/licenses/by-nc-sa/3.0/).
