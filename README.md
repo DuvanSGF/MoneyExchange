@@ -146,8 +146,6 @@ Username: Your name
 
 Email address: admin@example.com
 
-Run tests:
-
 Finally, run the development server:
 
 ```bash
