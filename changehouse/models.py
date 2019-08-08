@@ -49,10 +49,9 @@ class Cliente(models.Model):
     def __str__(self):
         return self.Cli_Persona
 
-class VentaCompra(models.Model):
-    id_venta = models.AutoField(primary_key=True)
-    Ven_Created = models.DateTimeField(default=timezone.now)
-    Ven_Cliente_ID = models.ForeignKey(Cliente, on_delete=models.CASCADE)
-    Ven_Precio = models.CharField(max_length=50)
-    Ven_Cantidad = models.CharField(max_length=50)
-    Ven_Total = models.CharField(max_length=50)
+class Compra(models.Model):
+    id_compra = models.AutoField(primary_key=True)
+    Com_Created = models.DateTimeField(default=timezone.now)
+    Com_Cliente_ID = models.ForeignKey(Cliente, on_delete=models.CASCADE)
+    Com_Precio = models.CharField(max_length=50)
+    Com_Cantidad = models.CharField(max_length=50)
