@@ -17,7 +17,7 @@ TIPOID = (
        ('CC', 'CC'),
 )
 
-CHANGE = (('0', 'Dolares a Pesos'), ('Pesos a Dolares'))
+CHANGE = (('0', 'Dolares a Pesos'), ('1','Pesos a Dolares'))
 
 class UserProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
@@ -51,7 +51,11 @@ class Cliente(models.Model):
 
 class Compra(models.Model):
     id_compra = models.AutoField(primary_key=True)
+    com_tipo = models.CharField(max_length=2, choices=CHANGE, default="0")
     Com_Created = models.DateTimeField(default=timezone.now)
     Com_Cliente_ID = models.ForeignKey(Cliente, on_delete=models.CASCADE)
     Com_Precio = models.CharField(max_length=50)
     Com_Cantidad = models.CharField(max_length=50)
+
+    def __str__(self):
+        return self.Com_Precio

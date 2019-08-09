@@ -57,4 +57,4 @@ class CompraCreateView(CreateView):
     template_name = 'compras/add_compra.html'
     form_class = CompraForm
     redirect_field_name = 'redirect_to'
-    #success_url = reverse_lazy('site:compra_listar')
+    success_url = reverse_lazy('site:cliente_listar')
