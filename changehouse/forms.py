@@ -1,5 +1,5 @@
 from django import forms
-from changehouse.models import Cliente
+from changehouse.models import Cliente, Compra
 from django.forms.utils import flatatt
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm
@@ -44,3 +44,29 @@ class ClienteForm(forms.ModelForm):
 
 def clean(self, *arg, **kwargs):
     cleaned_data = super(ClienteForm, self).clean(*arg, **kwargs)
+
+class CompraForm(forms.ModelForm):
+    class Meta:
+        model = Compra
+        fields = [
+            'Com_Created',
+            'Com_Cliente_ID',
+            'Com_Precio',
+            'Com_Cantidad',
+        ]
+
+        labels = {
+            'Com_Created': 'Fecha de operacion',
+            'Com_Cliente_ID': 'Cliente',
+            'Com_Precio': 'Precio',
+            'Com_Cantidad': 'Cantidad',
+        }
+
+    widgets  =  {
+
+                'Com_Createde': forms.TextInput(attrs={'class':'form-control'}),
+                'Com_Cliente_ID': forms.TextInput(attrs={'class':'form-control'}),
+                'Com_Precio': forms.Select(attrs={'class':'form-control'}),
+                'Com_Cantidad': forms.NumberInput(attrs={'class':'form-control'}),
+
+        }

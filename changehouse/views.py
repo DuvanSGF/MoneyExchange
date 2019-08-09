@@ -3,8 +3,8 @@ from django.views.generic import CreateView, ListView, DeleteView, UpdateView, D
 #from django.views.generic.detail import DetailView
 from django.urls import reverse_lazy
 from django.http import HttpResponse
-from changehouse.models import Cliente
-from changehouse.forms import ClienteForm
+from changehouse.models import Cliente, Compra
+from changehouse.forms import ClienteForm, CompraForm
 
 def inicio(request):
     return render(request, "base/base.html", {})
@@ -48,3 +48,13 @@ class ClienteDetailView(DetailView):
     model = Cliente
     template_name = 'clientes/show_cliente.html'
     redirect_field_name = 'redirect_to'
+
+
+
+# Vista para registrar una Compra
+class CompraCreateView(CreateView):
+    model = Compra
+    template_name = 'compras/add_compra.html'
+    form_class = CompraForm
+    redirect_field_name = 'redirect_to'
+    #success_url = reverse_lazy('site:compra_listar')
