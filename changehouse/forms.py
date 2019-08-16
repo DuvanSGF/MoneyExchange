@@ -50,23 +50,29 @@ class CompraForm(forms.ModelForm):
         model = Compra
         fields = [
             'Com_Created',
+            'Com_tipo',
             'Com_Cliente_ID',
             'Com_Precio',
             'Com_Cantidad',
+            'Com_Cambista_ID',
         ]
 
         labels = {
             'Com_Created': 'Fecha de operacion',
+            'Com_tipo': 'Tipo Compra',
             'Com_Cliente_ID': 'Cliente',
             'Com_Precio': 'Precio',
             'Com_Cantidad': 'Cantidad',
+            'Com_Cambista_ID': 'Cambista',
         }
 
     widgets  =  {
 
-                'Com_Createde': forms.TextInput(attrs={'class':'form-control'}),
+                'Com_Created': forms.TextInput(attrs={'class':'form-control'}),
+                'Com_tipo': forms.TextInput(attrs={'class':'form-control'}),
                 'Com_Cliente_ID': forms.TextInput(attrs={'class':'form-control'}),
                 'Com_Precio': forms.Select(attrs={'class':'form-control'}),
                 'Com_Cantidad': forms.NumberInput(attrs={'class':'form-control'}),
+                'Com_Cambista_ID': forms.TextInput(attrs={'class':'form-control'}),
 
         }
