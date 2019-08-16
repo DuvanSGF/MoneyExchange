@@ -47,7 +47,7 @@ class Cliente(models.Model):
 
 
     def __str__(self):
-        return self.Cli_Persona
+        return self.Cli_Nombre
 
 class Compra(models.Model):
     id_compra = models.AutoField(primary_key=True)
