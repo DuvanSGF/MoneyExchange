@@ -17,7 +17,11 @@ TIPOID = (
        ('CC', 'CC'),
 )
 
-CHANGE = (('0', 'Dolares a Pesos'), ('1','Pesos a Dolares'))
+CHANGE = (('Dolares a Pesos', 'Dolares a Pesos'), ('Pesos a Dolares','Pesos a Dolares'))
+
+Venta = ('Venta')
+
+Compra = ('Compra')
 
 class UserProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
@@ -51,10 +55,10 @@ class Cliente(models.Model):
 
 class Compra(models.Model):
     id_compra = models.AutoField(primary_key=True)
-    Com_tipo = models.CharField(max_length=2, choices=CHANGE, default="0")
+    Com_tipo = models.CharField(max_length=20, choices=CHANGE, default="Pesos a Dolares")
     Com_Created = models.DateTimeField(default=timezone.now)
     Com_Cliente_ID = models.ForeignKey(Cliente, on_delete=models.CASCADE)
-    Com_Precio = models.CharField(max_length=50)
+    Com_Precio = models.DecimalField(decimal_places=2, max_digits=65)
     Com_Cantidad = models.CharField(max_length=50)
     Com_Cambista_ID = models.ForeignKey(UserProfile, on_delete=models.CASCADE)
 
