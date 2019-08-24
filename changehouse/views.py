@@ -66,3 +66,5 @@ class CompraListView(ListView):
     redirect_field_name = 'redirect_to'
     # Se descomenta la linea de abajo para que funcione el paginado, sin Datables.
     #paginate_by = 5
+    def get_queryset(self):
+        return Compra.objects.all()

@@ -67,7 +67,7 @@
       <!-- Default box -->
       <div class="box">
         <div class="box-header with-border">
-          <h3 class="box-title">Registro de clientes:</h3>
+          <h3 class="box-title">Reporte de las Compras:</h3>
 
           <div class="box-tools pull-right">
             <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip"
@@ -85,38 +85,38 @@
           	<thead>
           		<tr>
           			<td>#</td>
-          			<td>Nombres</td>
-          			<td>Apellidos</td>
-          			<td>Tipo ID</td>
-                <td>Identificacion</td>
-          			<td>Direccion</td>
-          			<td>Telefono</td>
-          			<td>Tipo persona</td>
+          			<td>Fecha y Hora</td>
+          			<td>Operacion</td>
+          			<td>Tipo de cambio</td>
+                <td>Precio</td>
+          			<td>Cantidad</td>
+          			<td>Total</td>
+          			<td>Cliente</td>
+                <td>Cambista</td>
                 <td>Acciones</td>
           		</tr>
 
           	</thead>
           	<tbody>
           		{% if object_list %}
-          		{% for cliente in object_list %}
+          		{% for compra in object_list %}
           		<tr>
-          			<td>{{ cliente.id_cliente }}</td>
-          			<td>{{ cliente.Cli_Nombre }}</td>
-          			<td>{{ cliente.Cli_Apellido }}</td>
-                <td>{{ cliente.Cli_TipoID }}</td>
-                <td>{{ cliente.Cli_Identificacion }}</td>
-          			<td>{{ cliente.Cli_Direccion }}</td>
-          			<td>{{ cliente.Cli_Telefono }}</td>
-                <td>{{ cliente.Cli_Persona }}</td>
+          			<td>{{ compra.id_compra }}</td>
+          			<td>{{ compra.Com_Created }}</td>
+          			<td>{{ compra.Com_tipo }}</td>
+                <td>{{ compra.Com_Precio }}</td>
+                <td>{{ compra.Com_Cantidad }}</td>
+          			<td>{{ compra.Com_Cantidad }}</td>
+                <td>{{ compra.Com_Cantidad }}</td>
+          			<td>{{ compra.Com_Cliente_ID }}</td>
+                <td>{{ compra.Com_Cambista_ID }}</td>
           			<td>
-          				<a class="btn btn-primary" href="{% url 'site:cliente_mostrar' cliente.id_cliente %}">Ver</a>
-          				<a class="btn btn-primary" href="{% url 'site:cliente_editar' cliente.id_cliente %}">Editar</a>
-          				<a class="btn btn-danger" href="{% url 'site:cliente_eliminar' cliente.id_cliente %}">Eliminar</a>
+          				<a class="btn btn-danger" href="">Eliminar</a>
           			</td>
           		</tr>
           		{% endfor %}
           		{% else %}
-          		<h1>No hay registros de clientes</h1>
+          		<h1>No hay registros de compras</h1>
           		{% endif %}
           	</tbody>
           </table>
