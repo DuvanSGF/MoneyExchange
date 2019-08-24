@@ -58,3 +58,11 @@ class CompraCreateView(CreateView):
     form_class = CompraForm
     redirect_field_name = 'redirect_to'
     success_url = reverse_lazy('site:cliente_listar')
+
+
+# Vista para listar los clientes
+class CompraListView(ListView):
+    template_name = 'compras/list_compra.html'
+    redirect_field_name = 'redirect_to'
+    # Se descomenta la linea de abajo para que funcione el paginado, sin Datables.
+    #paginate_by = 5
