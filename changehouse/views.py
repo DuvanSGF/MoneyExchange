@@ -6,6 +6,11 @@ from django.http import HttpResponse
 from changehouse.models import Cliente, Compra, Venta
 from changehouse.forms import ClienteForm, CompraForm, VentaForm
 
+
+from io import BytesIO
+from reportlab.pdfgen import canvas
+from reportlab.lib.pagesizes import *;
+
 def inicio(request):
     return render(request, "base/base.html", {})
 
@@ -77,3 +82,39 @@ class VentaCreateView(CreateView):
     form_class = VentaForm
     redirect_field_name = 'redirect_to'
     success_url = reverse_lazy('site:compra_listar')
+
+# Vista para listar las ventas
+class VentaListView(ListView):
+    template_name = 'ventas/list_venta.html'
+    redirect_field_name = 'redirect_to'
+    # Se descomenta la linea de abajo para que funcione el paginado, sin Datables.
+    #paginate_by = 5
+    def get_queryset(self):
+        return Venta.objects.all()
+
+
+# Vista para Generar Reporte PDF
+def report(request):
+    response = HttpResponse(content_type='application/pdf')
+    response['Content-Disposicion'] = 'attachment; filename=Reporte'
+
+    buffer = BytesIO()
+    c = canvas.Canvas(buffer)
+
+    # Header
+    c.setLineWidth(.3)
+    c.setFont('Helvetica', 22)
+    c.drawString(30,750,'Ing. Duván Mejia Cortes')
+
+    c.setFont('Helvetica', 12)
+    c.drawString(30,735,'Report')
+
+    c.setFont('Helvetica-Bold', 12)
+    c.drawString(480,750, "25/08/2019")
+    c.line(460,747,560,747)
+
+    c.save()
+    pdf = buffer.getvalue()
+    buffer.close()
+    response.write(pdf)
+    return response

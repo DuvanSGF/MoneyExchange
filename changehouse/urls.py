@@ -24,5 +24,7 @@ urlpatterns = [
     path('compralistar/', CompraListView.as_view(), name='compra_listar'),
 
     path('venta/', VentaCreateView.as_view(), name='venta_crear'),
+    path('ventalistar/', VentaListView.as_view(), name='venta_listar'),
 
+    path('reporte/', views.report, name='reporte'),
 ]
