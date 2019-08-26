@@ -1,5 +1,5 @@
 from django import forms
-from changehouse.models import Cliente, Compra
+from changehouse.models import Cliente, Compra, Venta
 from django.forms.utils import flatatt
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm
@@ -75,4 +75,31 @@ class CompraForm(forms.ModelForm):
                 'Com_Cantidad': forms.NumberInput(attrs={'class':'form-control'}),
                 'Com_Cambista_ID': forms.TextInput(attrs={'class':'form-control'}),
 
+        }
+
+class VentaForm(forms.ModelForm):
+    class Meta:
+        model = Venta
+        fields = [
+            'Ven_Tipo',
+            'Ven_Created',
+            'Ven_Cliente_ID',
+            'Ven_Precio',
+            'Ven_Cantidad',
+            'Ven_Total',
+            'Ven_Pago',
+            'Ven_Vuelto',
+            'Ven_Cambista_ID',
+        ]
+
+        labels = {
+            'Ven_Tipo': 'Tipo Venta',
+            'Ven_Created': 'Fecha de Operacion',
+            'Ven_Cliente_ID': 'Cliente',
+            'Ven_Precio': 'Precio',
+            'Ven_Cantidad':'Cantidad',
+            'Ven_Total': 'Total',
+            'Ven_Pago': 'Pago',
+            'Ven_Vuelto': 'Vuelto',
+            'Ven_Cambista_ID': 'Cambista',
         }

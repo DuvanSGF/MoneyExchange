@@ -22,4 +22,7 @@ urlpatterns = [
     #re_path(r'editar/(?P<pk>\d+)/$',  ClienteDeleteView.as_view(), name='cliente_eliminar'),
     path('compra/', CompraCreateView.as_view(), name='compra_crear'),
     path('compralistar/', CompraListView.as_view(), name='compra_listar'),
+
+    path('venta/', VentaCreateView.as_view(), name='venta_crear'),
+
 ]

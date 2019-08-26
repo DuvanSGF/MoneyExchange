@@ -64,3 +64,15 @@ class Compra(models.Model):
 
     def __str__(self):
         return self.Com_tipo
+
+class Venta(models.Model):
+    id_venta = models.AutoField(primary_key=True)
+    Ven_Tipo = models.CharField(max_length=20, choices=CHANGE, default="Pesos a Dolares")
+    Ven_Created = models.DateTimeField(default=timezone.now)
+    Ven_Cliente_ID = models.ForeignKey(Cliente, on_delete=models.CASCADE)
+    Ven_Precio = models.DecimalField(decimal_places=2, max_digits=65)
+    Ven_Cantidad = models.CharField(max_length=50)
+    Ven_Total = models.CharField(max_length=50)
+    Ven_Pago = models.CharField(max_length=50)
+    Ven_Vuelto = models.CharField(max_length=50)
+    Ven_Cambista_ID = models.ForeignKey(UserProfile, on_delete=models.CASCADE)
