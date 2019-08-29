@@ -6,7 +6,7 @@ from django.http import HttpResponse
 from changehouse.models import Cliente, Compra, Venta
 from changehouse.forms import ClienteForm, CompraForm, VentaForm
 
-
+#Primer pdf
 from io import BytesIO
 from reportlab.pdfgen import canvas
 from reportlab.lib.pagesizes import *;

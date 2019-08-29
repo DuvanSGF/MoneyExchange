@@ -8,3 +8,4 @@ django-filter==1.1.0
 Pillow==5.0.0
 pytz==2017.2
 virtualenv==15.1.0
+reportlab==3.5.23
