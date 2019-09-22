@@ -77,10 +77,10 @@ WSGI_APPLICATION = 'web.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'change',
-        'USER': 'root',
-        'PASSWORD': '',
-        'HOST': 'localhost',
+        'NAME': 'bfsyoapzaxswxtegpbfb',
+        'USER': 'u4q71dktkfxd5w2j',
+        'PASSWORD': 'eJCUleoX1HEaikurSIKL',
+        'HOST': 'bfsyoapzaxswxtegpbfb-mysql.services.clever-cloud.com',
         'PORT': '3306',
         'OPTIONS': {
              'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
