@@ -65,8 +65,8 @@ Download the zip file and unpack it:
 
 ```bash
 widget https://github.com/DuvanSGF/changehouse/master.zip
-unzip master.zip
 ```
+unzip master.zip
 
 
 ## Configuration
@@ -75,9 +75,15 @@ Installing Virtualenv
 
 For the next step, we are going to use pip, a tool to manage and install Python packages, to install virtualenv.
 
-First step : create the folder: In the Command Prompt, execute the command :  mkdir changehouse
-and then : cd changehouse
+Create the folder: In the Command Prompt, execute the command :
+```bash
+mkdir changehouse
+```
 
+and then :
+```bash
+cd changehouse
+```
 and finally in the Command Prompt, execute the command below:
 
 ```bash
