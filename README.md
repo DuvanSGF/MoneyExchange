@@ -75,21 +75,22 @@ Installing Virtualenv
 
 For the next step, we are going to use pip, a tool to manage and install Python packages, to install virtualenv.
 
-In the Command Prompt, execute the command below:
+First step : create the folder: In the Command Prompt, execute the command :  mkdir changehouse
+and then : cd changehouse
 
+and finally in the Command Prompt, execute the command below:
+
+```bash
+virtualenv .
+```
+or
 ```bash
 pip install virtualenv
 ```
-Inside the changeHouse folder:
 
+Our virtual environment is installed. Now before we start using it, we need to activate:
 ```bash
-virtualenv venv
-```
-
-Our virtual environment is created. Now before we start using it, we need to activate:
-
-```bash
-venv\Scripts\activate
+.\Scripts\activate
 ```
 
 It’s very straightforward. Now that we have the venv activated, run the following command to install requirements:
