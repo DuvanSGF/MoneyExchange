@@ -47,7 +47,7 @@ class Cliente(models.Model):
     Cli_Telefono = models.CharField(max_length=50)
     Cli_Persona = models.CharField(max_length=10, choices=TIPOPER, default="Natural")
     Cli_Estado = models.CharField(max_length=1, choices=ESTADOS, default="0")
-    Cli_User_ID = models.ForeignKey(UserProfile, on_delete=models.CASCADE)
+    #Cli_User_ID = models.ForeignKey(UserProfile, on_delete=models.CASCADE)
 
 
     def __str__(self):
@@ -58,7 +58,7 @@ class Compra(models.Model):
     Com_tipo = models.CharField(max_length=20, choices=CHANGE, default="Pesos a Dolares")
     Com_Created = models.DateTimeField(default=timezone.now)
     Com_Cliente_ID = models.ForeignKey(Cliente, on_delete=models.CASCADE)
-    Com_Precio = models.DecimalField(decimal_places=2, max_digits=65)
+    Com_Precio = models.DecimalField(decimal_places=2, max_digits=10)
     Com_Cantidad = models.CharField(max_length=50)
     Com_Cambista_ID = models.ForeignKey(UserProfile, on_delete=models.CASCADE)
 
@@ -70,7 +70,7 @@ class Venta(models.Model):
     Ven_Tipo = models.CharField(max_length=20, choices=CHANGE, default="Pesos a Dolares")
     Ven_Created = models.DateTimeField(default=timezone.now)
     Ven_Cliente_ID = models.ForeignKey(Cliente, on_delete=models.CASCADE)
-    Ven_Precio = models.DecimalField(decimal_places=2, max_digits=65)
+    Ven_Precio = models.DecimalField(decimal_places=2, max_digits=10)
     Ven_Cantidad = models.CharField(max_length=50)
     Ven_Total = models.CharField(max_length=50)
     Ven_Pago = models.CharField(max_length=50)

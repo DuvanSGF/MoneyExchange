@@ -16,7 +16,7 @@ class ClienteForm(forms.ModelForm):
             'Cli_Direccion',
             'Cli_Telefono',
             'Cli_Persona',
-            'Cli_User_ID',
+           # 'Cli_User_ID',
         ]
 
         labels = {
@@ -26,7 +26,7 @@ class ClienteForm(forms.ModelForm):
             'Cli_Direccion': 'Direccion',
             'Cli_Telefono': 'Telefono',
             'Cli_Persona': 'Tipo persona',
-            'Cli_User_ID': 'Cambista',
+          #  'Cli_User_ID': 'Cambista',
         }
 
     widgets  =  {
@@ -38,7 +38,7 @@ class ClienteForm(forms.ModelForm):
     	        'Cli_Direccion': forms.NumberInput(attrs={'class':'form-control'}),
     	        'Cli_Telefono': forms.NumberInput(attrs={'class':'form-control'}),
                 'Cli_Persona': forms.Select(attrs={'class':'form-control'}),
-                'Cli_User_ID': forms.Select(attrs={'class':'form-control'}),
+               # 'Cli_User_ID': forms.Select(attrs={'class':'form-control'}),
 
         }
 
