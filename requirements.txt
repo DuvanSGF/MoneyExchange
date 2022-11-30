@@ -1,7 +1,7 @@
 mysqlclient==1.4.0
 cymysql==0.9.4
 dj-database-url==0.4.2
-Django==3.2.16
+Django==2.2.28
 django-cymysql==2.0.0
 django-datatable==0.3.1
 django-filter==2.4.0
@@ -9,4 +9,4 @@ pillow>=6.2.0
 pytz==2017.2
 virtualenv==15.1.0
 reportlab==3.5.55
-#Django==2.2.28
+django-mssql-backend

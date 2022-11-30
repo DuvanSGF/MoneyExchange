@@ -73,17 +73,16 @@ WSGI_APPLICATION = 'web.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
-
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
+        'ENGINE': 'sql_server.pyodbc',
         'NAME': 'changehouse',
-        'USER': 'root',
-        'PASSWORD': 'mysqlab123',
-        'HOST': 'localhost',
-        'PORT': '3309',
+        'USER': 'siri',
+        'PASSWORD': 'siri123',
+        'HOST': 'DESKTOP-UCFJAL3',
+        'PORT': '',
         'OPTIONS': {
-             'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
+             'driver': 'ODBC Driver 13 for SQL Server',
         },
     }
 }
