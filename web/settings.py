@@ -77,11 +77,11 @@ WSGI_APPLICATION = 'web.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'change',
+        'NAME': 'changehouse',
         'USER': 'root',
-        'PASSWORD': '',
+        'PASSWORD': 'mysqlab123',
         'HOST': 'localhost',
-        'PORT': '3306',
+        'PORT': '3309',
         'OPTIONS': {
              'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
         },
