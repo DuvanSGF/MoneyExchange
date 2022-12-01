@@ -1,6 +1,6 @@
 # Introduction
 ----
-ChangeHouse was developed by Duvan Mejia, with the documentation available on docs.djangoproject.com.
+MoneyExchange was developed by Duvan Mejia, with the documentation available on docs.djangoproject.com.
 ---
 [![Python Version](https://img.shields.io/badge/python-3.6-brightgreen.svg)](https://python.org)
 [![Django Version](https://img.shields.io/badge/django-2.0-brightgreen.svg)](https://djangoproject.com)
