@@ -18,6 +18,7 @@ from django.urls import include, path
 # Importamos las dos siguientes lineas para que reconozca la linea 25: Es para la Imagen de Perfil. Ok
 from django.conf.urls.static import static
 from django.conf import settings
+from django.conf.urls import include, url
 
 urlpatterns = [
     path('site/', include(('changehouse.urls', 'changehouse'), namespace='site')),

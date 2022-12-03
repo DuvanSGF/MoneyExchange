@@ -5,14 +5,86 @@ from django.urls import reverse_lazy
 from django.http import HttpResponse
 from changehouse.models import Cliente, Compra, Venta
 from changehouse.forms import ClienteForm, CompraForm, VentaForm
-
-#Primer pdf
 from io import BytesIO
 from reportlab.pdfgen import canvas
 from reportlab.lib.pagesizes import *;
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth import authenticate, login, logout, get_user_model
+from django.contrib.auth import login as auth_login
+from django.http import HttpResponse, HttpResponseRedirect, Http404
+from django.views.generic.base import TemplateView
+from django.contrib.auth.mixins import LoginRequiredMixin
 
-def inicio(request):
-    return render(request, "base/base.html", {})
+
+#Vista de Inicio
+
+class HomePageView(LoginRequiredMixin,TemplateView):  
+    template_name = "base/base.html"
+
+    # @login_required(login_url='/accounts/login/')
+    def get(self, request,*args,**kwargs):
+        return render(request, self.template_name,{'tittle': "Administración"})
+ 
+class LoginPageView(TemplateView):
+    template_name = "accounts/login.html"
+
+#Vista Login
+def login(request):
+    if request.user.is_authenticated():
+        return redirect('/site')
+    if request.method == 'POST':
+        username = request.POST['username']
+        password = request.POST['password']
+        user = authenticate(request, username=username, password=password)
+        if user is not None:
+            if user.is_active:
+                auth_login(request, user)
+                return HttpResponseRedirect('/site')
+            else:
+                return render(request, 'registration/login.html', {'error': 'Usuario no existe'}, content_type='text/html')
+        else:
+            return render(request, 'registration/login.html', {'error': 'Usuario o contraseña invalidos.'}, content_type='text/html')
+    else:
+        return render(request, 'registration/login.html', {}, content_type='text/html')
+
+
+
+
+
+
+# class MyLoginView(LoginView):
+#     template_name = 'registration/login.html'
+
+#     def form_valid(self, form):
+#         user = form.get_user()
+#         messages.success(self.request, f'Welcome {user}')
+#         return super().form_valid(form)
+
+
+
+# #Vista Login
+# def login(request):
+#     if request.user.is_authenticated():
+#         return redirect('/site')
+#     if request.method == 'POST':
+#         username = request.POST['username']
+#         password = request.POST['password']
+#         user = authenticate(request, username=username, password=password)
+#         if user is not None:
+#             if user.is_active:
+#                 auth_login(request, user)
+#                 return HttpResponseRedirect('/site')
+#             else:
+#                 return render(request, 'registration/login.html', {'error': 'Usuario no existe'}, content_type='text/html')
+#         else:
+#             return render(request, 'registration/login.html', {'error': 'Usuario o contraseña invalidos.'}, content_type='text/html')
+#     else:
+#         return render(request, 'registration/login.html', {}, content_type='text/html')
+
+
+
+# def register(request):
+# 	return render(request, "accounts/register.html")
 
 
 # Vistar para crear un cliente
@@ -93,8 +165,8 @@ class VentaListView(ListView):
         return Venta.objects.all()
 
 
-# Vista para Generar Reporte PDF
-def report(request):
+#  Vista para Generar Reporte PDF
+class reportView(TemplateView):
     response = HttpResponse(content_type='application/pdf')
     response['Content-Disposicion'] = 'attachment; filename=Reporte'
 
@@ -117,4 +189,4 @@ def report(request):
     pdf = buffer.getvalue()
     buffer.close()
     response.write(pdf)
-    return response
+    # return response
